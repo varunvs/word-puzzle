@@ -1,0 +1,11 @@
+{
+  "name": "word-puzzle",
+  "version": "1.0.0",
+  "description": "A word puzzle game",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Varun",
+  "license": "ISC"
+}
