@@ -7,5 +7,9 @@
     "test": "test"
   },
   "author": "Varun",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-mocks": "^1.6.4"
+  }
 }
