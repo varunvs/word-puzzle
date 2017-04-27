@@ -41,6 +41,13 @@ module.exports = {
         }, {
           loader: 'less-loader'
         }]
+      },
+      {
+        test: /\.html$/,
+        use: [
+          'ngtemplate-loader?relativeTo=' + path.resolve(__dirname) + '/src',
+          'html-loader',
+        ]
       }
     ]
   }

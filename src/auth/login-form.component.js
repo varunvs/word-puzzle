@@ -1,7 +1,5 @@
+import templateUrl from './login-form.html';
+
 export default {
-  template: `
-    <div>
-      <span>Login form</span>
-    </div>
-  `,
+  templateUrl,
 };
