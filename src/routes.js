@@ -8,11 +8,13 @@ export default function routes($stateProvider, $locationProvider) {
     .state({
       name: 'home',
       url: '/',
+      authRequired: true,
     })
     .state({
       name: 'login',
       url: '/login',
       template: '<login-page></login-page>',
+      authRequired: false,
     });
 }
 

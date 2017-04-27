@@ -23,7 +23,7 @@ describe('auth factory', function() {
       beforeEach(function() {
         AuthFactory.init();
 
-        $rootScope.$broadcast('$stateChangeStart');
+        $rootScope.$broadcast('$stateChangeStart', { authRequired: true });
       });
 
       it('reads username from session storage', function() {

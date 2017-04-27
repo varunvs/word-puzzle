@@ -1,9 +1,9 @@
 export default function AuthService($rootScope, $window, $state) {
   function init() {
-    $rootScope.$on('$stateChangeStart', (event) => {
+    $rootScope.$on('$stateChangeStart', (event, nextState) => {
       const user = $window.sessionStorage.getItem('username');
 
-      if (!user) {
+      if (!user && nextState.authRequired) {
         $state.transitionTo('login');
         event.preventDefault();
       }
