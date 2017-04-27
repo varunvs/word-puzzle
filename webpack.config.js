@@ -13,6 +13,9 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, './src'),
+    historyApiFallback: {
+      index: './index.html',
+    },
   },
   module: {
     rules: [

@@ -3,8 +3,8 @@
   "extends": "airbnb-base",
   "rules": {
     "max-len": ["error", 120],
-    "no-bitwise": 0,
     "no-debugger": "warn",
+    "import/first": 0
   },
   "env": {
     "browser": true
