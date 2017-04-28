@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'inline-sourcemap',
@@ -8,7 +9,7 @@ module.exports = {
     app: './index.js',
   },
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, './docs'),
     filename: '[name].bundle.js',
   },
   devServer: {
@@ -47,6 +48,9 @@ module.exports = {
         use: [
           'ngtemplate-loader?relativeTo=' + path.resolve(__dirname) + '/src',
           'html-loader',
+        ],
+        exclude: [
+          path.resolve(__dirname, 'src/index.html'),
         ]
       },
       {
@@ -58,5 +62,12 @@ module.exports = {
         use: 'file-loader',
       },
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'index.html',
+      inject: 'head',
+    }),
+  ]
 };
