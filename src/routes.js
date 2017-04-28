@@ -1,26 +1,16 @@
-export default function routes($stateProvider, $locationProvider) {
-  $locationProvider.html5Mode({
-    enabled: true,
-    requireBase: false,
-  });
-
+export default function routes($stateProvider) {
   $stateProvider
     .state({
-      name: 'home',
+      name: 'login',
       url: '/',
-      authRequired: true,
+      template: '<login-page></login-page>',
+      authRequired: false,
     })
     .state({
       name: 'game',
       url: '/game',
       template: '<game-page></game-page>',
       authRequired: true,
-    })
-    .state({
-      name: 'login',
-      url: '/login',
-      template: '<login-page></login-page>',
-      authRequired: false,
     })
     .state({
       name: 'scores',
@@ -30,4 +20,4 @@ export default function routes($stateProvider, $locationProvider) {
     });
 }
 
-routes.$inject = ['$stateProvider', '$locationProvider'];
+routes.$inject = ['$stateProvider'];
