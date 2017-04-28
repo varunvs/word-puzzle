@@ -6,6 +6,7 @@ import userDetailsComponent from './user-details.component';
 import gamePage from './page.component';
 
 import WordsRepository from './words-repository.factory';
+import GameRepository from './game-repository.factory';
 
 export default angular.module('wordpuzzle.game', [])
   .component('gamePage', gamePage)
@@ -13,4 +14,5 @@ export default angular.module('wordpuzzle.game', [])
   .component('timeRemaining', timeRemainingComponent)
   .component('userDetails', userDetailsComponent)
   .factory('WordsRepository', WordsRepository)
+  .factory('GameRepository', GameRepository)
   .name;

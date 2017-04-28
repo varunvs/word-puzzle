@@ -2,4 +2,7 @@
   <user-details username="$ctrl.username"></user-details>
   <guess-the-word word="$ctrl.shuffledWord" on-submit="$ctrl.onEnterWord(word)"></guess-the-word>
   <time-remaining seconds="$ctrl.timeRemaining" max-time="$ctrl.maxTime" on-end-time="$ctrl.onEndTime()" on-tick="$ctrl.onTick(time)"></time-remaining>
+  <div class="score-container">
+    <span>Score: {{$ctrl.score}}</span>
+  </div>
 </section>
