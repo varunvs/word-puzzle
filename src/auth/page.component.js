@@ -1,7 +1,12 @@
+import templateUrl from './page.html';
+
 export default {
-  template: `
-    <section>
-      <login-form></login-form>
-    </section>
-  `,
+  templateUrl,
+  controller: ['AuthFactory', function (AuthFactory) {
+    const $ctrl = this;
+
+    $ctrl.login = function (username) {
+      AuthFactory.login(username);
+    };
+  }],
 };

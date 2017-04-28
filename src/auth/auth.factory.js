@@ -10,7 +10,15 @@ export default function AuthService($rootScope, $window, $state) {
     });
   }
 
-  return { init };
+  function login(username) {
+    $window.sessionStorage.setItem('username', username);
+  }
+
+  function logout() {
+    $window.sessionStorage.removeItem('username');
+  }
+
+  return { init, login, logout };
 }
 
 AuthService.$inject = ['$rootScope', '$window', '$state'];

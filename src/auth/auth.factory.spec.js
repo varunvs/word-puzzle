@@ -3,7 +3,7 @@ describe('auth factory', function() {
 
   beforeEach(module('wordpuzzle.auth', function($provide) {
     mockWindow = {
-      sessionStorage: jasmine.createSpyObj('sessionStorage', ['getItem']),
+      sessionStorage: jasmine.createSpyObj('sessionStorage', ['getItem', 'setItem', 'removeItem']),
     };
     mockState = jasmine.createSpyObj('$state', ['transitionTo']);
 
@@ -45,6 +45,20 @@ describe('auth factory', function() {
       it('does not redirect to login page', function() {
         expect(mockState.transitionTo).not.toHaveBeenCalled();
       });
+    });
+  });
+
+  describe('login', function() {
+    it('saves username in session storage', function() {
+      AuthFactory.login('blah');
+      expect(mockWindow.sessionStorage.setItem).toHaveBeenCalledWith('username', 'blah');
+    });
+  });
+
+  describe('logout', function() {
+    it('saves username in session storage', function() {
+      AuthFactory.logout();
+      expect(mockWindow.sessionStorage.removeItem).toHaveBeenCalledWith('username');
     });
   });
 });
