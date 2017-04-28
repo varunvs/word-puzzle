@@ -26,5 +26,15 @@ export default {
       $ctrl.username = AuthFactory.getUsername();
       getWords().then(() => nextWord());
     };
+
+    $ctrl.onEnterWord = function (word) {
+      if ($ctrl.currentWord === word.trim()) {
+        nextWord();
+      }
+
+      if ($ctrl.words.indexOf(word.trim()) > -1) {
+        nextWord();
+      }
+    };
   }],
 };

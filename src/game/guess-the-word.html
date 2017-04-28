@@ -1,7 +1,7 @@
 <section class="mx-auto">
   <div>
     <h1>{{$ctrl.word}}</h1>
-    <form class="form">
+    <form class="form" ng-submit="$ctrl.onEnter()">
       <input type="text" class="border-less-textarea guessed-word" placeholder="Guess the word..." ng-model="$ctrl.userValue" />
     </form>
   </div>
