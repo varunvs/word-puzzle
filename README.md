@@ -10,3 +10,5 @@ To start the webpack development server, run `yarn start`
 Run tests by executing `yarn test`
 
 Goto `http://localhost:8080/#!/` to access the dev server. (Assuming webpack dev server is running on localhost:8080)
+
+Go here [https://varunvs.github.io/word-puzzle](https://varunvs.github.io/word-puzzle/#!/) for live demo
