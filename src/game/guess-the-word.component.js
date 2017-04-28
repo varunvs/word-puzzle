@@ -7,7 +7,7 @@ export default {
     onSubmit: '&',
   },
   templateUrl: guessTheWordTemplate,
-  controller() {
+  controller: ['$element', function ($element) {
     const $ctrl = this;
 
     const resetUserValue = function () {
@@ -24,8 +24,9 @@ export default {
 
     $ctrl.$onChanges = function (changes) {
       if (changes.word.currentValue !== changes.word.previousValue) {
+        $element[0].querySelector('#word').focus();
         resetUserValue();
       }
     };
-  },
+  }],
 };
