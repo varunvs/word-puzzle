@@ -1,15 +1,20 @@
-export default function GameRepository($q) {
-  const saveScore = function (score) {
-    return $q.when(score);
+import _ from 'lodash';
+
+export default function GameRepository(ApiConstants, $http) {
+  const saveScore = function (name, value) {
+    $http({
+      method: 'PUT',
+      url: `${ApiConstants.baseUrl}/data/scores`,
+      data: {
+        full_name: name,
+        score: value,
+      },
+    });
   };
 
   const getScores = function () {
-    return $q.when([
-      { name: 'blah', value: 100 },
-      { name: 'blah2', value: 20 },
-      { name: 'blah3', value: 34 },
-      { name: 'blah4', value: 20 },
-    ]);
+    return $http.get(`${ApiConstants.baseUrl}/data/scores`)
+      .then(response => _.map(response.data, score => ({ name: score.full_name, value: score.score })));
   };
 
   const calcScore = function (actualWord, userInput) {
@@ -30,4 +35,4 @@ export default function GameRepository($q) {
   };
 }
 
-GameRepository.$inject = ['$q'];
+GameRepository.$inject = ['ApiConstants', '$http'];

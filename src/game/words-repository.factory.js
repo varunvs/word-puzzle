@@ -1,13 +1,9 @@
-export default function WordsRepository($q) {
+import _ from 'lodash';
+
+export default function WordsRepository($http, ApiConstants) {
   const getWords = function () {
-    return $q.when([
-      'carpet',
-      'car',
-      'promise',
-      'prom',
-      'object',
-      'olympics',
-    ]);
+    return $http.get(`${ApiConstants.baseUrl}/data/words`, { params: { pageSize: 100 } })
+      .then(response => _.map(response.data, 'word'));
   };
 
   const shuffleWord = function (word) {
@@ -30,4 +26,4 @@ export default function WordsRepository($q) {
   };
 }
 
-WordsRepository.$inject = ['$q'];
+WordsRepository.$inject = ['$http', 'ApiConstants'];

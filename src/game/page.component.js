@@ -56,11 +56,12 @@ export default {
       $ctrl.$onInit = function () {
         $ctrl.username = AuthFactory.getUsername();
 
-        startGame();
-
         getWords()
-          .then(() => nextWord())
-          .then(setRemainingTime);
+          .then(() => {
+            setRemainingTime();
+            startGame();
+          })
+          .then(() => nextWord());
       };
 
       $ctrl.onEnterWord = function (word) {
@@ -81,6 +82,7 @@ export default {
 
       $ctrl.onEndTime = function () {
         $ctrl.isGameOver = true;
+        GameRepository.saveScore(AuthFactory.getUsername(), $ctrl.score);
       };
 
       $ctrl.playAgain = function () {

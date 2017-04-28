@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 import timeRemainingTemplate from './time-remaining.html';
 import './time-remaining.less';
 
@@ -31,6 +33,8 @@ export default {
 
     $ctrl.$onChanges = function (changes) {
       const secondsNextVal = changes.seconds.currentValue;
+
+      if (!_.isNumber(secondsNextVal)) return;
 
       if (secondsNextVal !== changes.seconds.previousValue) {
         scheduleTimerIfRequired(secondsNextVal);
