@@ -12,7 +12,7 @@ export default {
       GameRepository
         .getScores()
         .then((scores) => {
-          $ctrl.scores = _.chain(scores).take(5).orderBy('value', 'desc').value();
+          $ctrl.scores = _.chain(scores).orderBy('value', 'desc').take(5).value();
         });
     };
 
