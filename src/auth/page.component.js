@@ -1,3 +1,4 @@
+import './page.less';
 import templateUrl from './page.html';
 
 export default {

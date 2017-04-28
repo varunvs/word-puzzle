@@ -24,7 +24,7 @@ export default function routes($stateProvider, $locationProvider) {
     })
     .state({
       name: 'scores',
-      url: '/scores/',
+      url: '/scores',
       template: '<scores-page></scores-page>',
       authRequired: false,
     });

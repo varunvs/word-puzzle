@@ -45,7 +45,6 @@ export default {
         $ctrl.isGameOver = false;
         $ctrl.maxTime = GAME_TIME_SPAN;
         $ctrl.score = 0;
-
         index = 0;
       };
 
