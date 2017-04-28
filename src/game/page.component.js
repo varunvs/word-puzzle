@@ -29,6 +29,18 @@ export default {
         }
       };
 
+      const isSimilarWord = function (word) {
+        const i = $ctrl.words.indexOf(word);
+
+        if (i === -1) return false;
+
+        if ($ctrl.currentWord.substr(0, word.length).toLowerCase() === word.toLowerCase()) {
+          return true;
+        }
+
+        return false;
+      };
+
       $ctrl.$onInit = function () {
         $ctrl.username = AuthFactory.getUsername();
         $ctrl.maxTime = GAME_TIME_SPAN;
@@ -42,12 +54,13 @@ export default {
       };
 
       $ctrl.onEnterWord = function (word) {
-        if ($ctrl.currentWord === word.trim()) {
+        if ($ctrl.currentWord.toLowerCase() === word.trim().toLowerCase()) {
           $ctrl.score += GameRepository.calcScore($ctrl.currentWord, word);
           nextWord();
         }
 
-        if ($ctrl.words.indexOf(word.trim()) > -1) {
+        if (isSimilarWord(word)) {
+          $ctrl.score += GameRepository.calcScore($ctrl.currentWord, word);
           nextWord();
         }
       };
