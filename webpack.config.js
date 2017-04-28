@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  devtool: 'inline-sourcemap',
+  devtool: 'cheap-source-map',
   context: path.resolve(__dirname, './src'),
   entry: {
     app: './index.js',
