@@ -4,7 +4,9 @@
   "description": "A word puzzle game",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "start": "./node_modules/.bin/webpack-dev-server",
+    "test": "./node_modules/.bin/karma start karma.conf.js",
+    "watch": "./node_modules/.bin/webpack --watch"
   },
   "author": "Varun",
   "license": "ISC",
