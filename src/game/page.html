@@ -5,4 +5,13 @@
   <div class="score-container">
     <span>Score: {{$ctrl.score}}</span>
   </div>
+  <div class="game-over-screen container" ng-if="$ctrl.isGameOver">
+    <h2>Your score is {{$ctrl.score}}</h2>
+    <div>
+      <div class="view-top-scores-link">
+        <a ui-sref="scores">View top scores</a>
+      </div>
+      <button class="btn btn-success" ng-click="$ctrl.playAgain()">Play another game</button>
+    </div>
+  </div>
 </section>

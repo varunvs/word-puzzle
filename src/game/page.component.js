@@ -41,16 +41,26 @@ export default {
         return false;
       };
 
-      $ctrl.$onInit = function () {
-        $ctrl.username = AuthFactory.getUsername();
+      const startGame = function () {
+        $ctrl.isGameOver = false;
         $ctrl.maxTime = GAME_TIME_SPAN;
         $ctrl.score = 0;
 
+        index = 0;
+      };
+
+      const setRemainingTime = function () {
+        $ctrl.timeRemaining = GAME_TIME_SPAN;
+      };
+
+      $ctrl.$onInit = function () {
+        $ctrl.username = AuthFactory.getUsername();
+
+        startGame();
+
         getWords()
           .then(() => nextWord())
-          .then(() => {
-            $ctrl.timeRemaining = GAME_TIME_SPAN;
-          });
+          .then(setRemainingTime);
       };
 
       $ctrl.onEnterWord = function (word) {
@@ -70,7 +80,13 @@ export default {
       };
 
       $ctrl.onEndTime = function () {
-        console.info('Time is zero');
+        $ctrl.isGameOver = true;
+      };
+
+      $ctrl.playAgain = function () {
+        startGame();
+        setRemainingTime();
+        nextWord();
       };
     },
   ],

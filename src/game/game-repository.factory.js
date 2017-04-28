@@ -13,7 +13,7 @@ export default function GameRepository($q) {
   };
 
   const calcScore = function (actualWord, userInput) {
-    const maxScore = Math.floor(1.95 ** (actualWord.length / 3));
+    const maxScore = Math.floor(Math.pow(1.95, (actualWord.length / 3))); // eslint-disable-line
     let actualScore = maxScore;
 
     if (actualWord !== userInput) {
