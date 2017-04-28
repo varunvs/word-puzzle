@@ -11,6 +11,12 @@ export default function routes($stateProvider, $locationProvider) {
       authRequired: true,
     })
     .state({
+      name: 'game',
+      url: '/game',
+      template: '<game-page></game-page>',
+      authRequired: true,
+    })
+    .state({
       name: 'login',
       url: '/login',
       template: '<login-page></login-page>',
