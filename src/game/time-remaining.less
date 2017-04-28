@@ -1,0 +1,26 @@
+time-remaining {
+  display: block;
+  text-align: center;
+  font-size: 32px;
+  margin-top: 100px;
+
+  .bottom-bar {
+    position: fixed;
+    bottom: 0;
+    height: 8px;
+    background-color: #ccc;
+    left: 0;
+    right: 0;
+    display: flex;
+  }
+
+  .remaining-time-bar, .placeholder-bar {
+    display: flex;
+    transition: all 0.2s ease-in;
+    height: 8px;
+  }
+
+  .remaining-time-bar {
+    background-color: green;
+  }
+}

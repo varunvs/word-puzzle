@@ -23,7 +23,7 @@ export default {
     };
 
     $ctrl.$onChanges = function (changes) {
-      if (changes.word.nextValue !== changes.word.previousValue) {
+      if (changes.word.currentValue !== changes.word.previousValue) {
         resetUserValue();
       }
     };

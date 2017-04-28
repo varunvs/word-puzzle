@@ -1,5 +1,7 @@
 import templateUrl from './page.html';
 
+const GAME_TIME_SPAN = 40;
+
 export default {
   templateUrl,
   controller: ['AuthFactory', 'WordsRepository', function (AuthFactory, WordsRepository) {
@@ -24,7 +26,13 @@ export default {
 
     $ctrl.$onInit = function () {
       $ctrl.username = AuthFactory.getUsername();
-      getWords().then(() => nextWord());
+      $ctrl.maxTime = GAME_TIME_SPAN;
+
+      getWords()
+        .then(() => nextWord())
+        .then(() => {
+          $ctrl.timeRemaining = GAME_TIME_SPAN;
+        });
     };
 
     $ctrl.onEnterWord = function (word) {
@@ -35,6 +43,14 @@ export default {
       if ($ctrl.words.indexOf(word.trim()) > -1) {
         nextWord();
       }
+    };
+
+    $ctrl.onTick = function (time) {
+      $ctrl.timeRemaining = time;
+    };
+
+    $ctrl.onEndTime = function () {
+      console.info('Time is zero');
     };
   }],
 };

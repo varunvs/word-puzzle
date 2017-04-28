@@ -1,5 +1,5 @@
 <section>
   <user-details username="$ctrl.username"></user-details>
-  <time-remaining></time-remaining>
   <guess-the-word word="$ctrl.shuffledWord" on-submit="$ctrl.onEnterWord(word)"></guess-the-word>
+  <time-remaining seconds="$ctrl.timeRemaining" max-time="$ctrl.maxTime" on-end-time="$ctrl.onEndTime()" on-tick="$ctrl.onTick(time)"></time-remaining>
 </section>
