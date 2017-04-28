@@ -61,4 +61,13 @@ describe('auth factory', function() {
       expect(mockWindow.sessionStorage.removeItem).toHaveBeenCalledWith('username');
     });
   });
+
+  describe('getUsername', function() {
+    it('gets username from session storage', function() {
+      mockWindow.sessionStorage.getItem.and.returnValue('blah');
+      var username = AuthFactory.getUsername();
+      expect(username).toBe('blah');
+      expect(mockWindow.sessionStorage.getItem).toHaveBeenCalledWith('username');
+    });
+  });
 });

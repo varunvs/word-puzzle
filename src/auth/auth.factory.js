@@ -18,7 +18,11 @@ export default function AuthService($rootScope, $window, $state) {
     $window.sessionStorage.removeItem('username');
   }
 
-  return { init, login, logout };
+  function getUsername() {
+    return $window.sessionStorage.getItem('username');
+  }
+
+  return { init, login, logout, getUsername };
 }
 
 AuthService.$inject = ['$rootScope', '$window', '$state'];

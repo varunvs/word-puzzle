@@ -1,3 +1,9 @@
+import userDetailsTemplate from './user-details.html';
+import './user-details.less';
+
 export default {
-  template: '',
+  bindings: {
+    username: '<',
+  },
+  templateUrl: userDetailsTemplate,
 };
