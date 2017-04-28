@@ -1,4 +1,17 @@
-export default function GameRepository() {
+export default function GameRepository($q) {
+  const saveScore = function (score) {
+    return $q.when(score);
+  };
+
+  const getScores = function () {
+    return $q.when([
+      { name: 'blah', value: 100 },
+      { name: 'blah2', value: 20 },
+      { name: 'blah3', value: 34 },
+      { name: 'blah4', value: 20 },
+    ]);
+  };
+
   const calcScore = function (actualWord, userInput) {
     const maxScore = Math.floor(1.95 ** (actualWord.length / 3));
     let actualScore = maxScore;
@@ -11,6 +24,10 @@ export default function GameRepository() {
   };
 
   return {
+    saveScore,
+    getScores,
     calcScore,
   };
 }
+
+GameRepository.$inject = ['$q'];

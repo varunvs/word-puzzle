@@ -1,0 +1,16 @@
+<div>
+  <table class="table score-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="score in $ctrl.scores">
+        <td>{{score.name}}</td>
+        <td>{{score.value}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
