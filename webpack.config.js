@@ -48,7 +48,15 @@ module.exports = {
           'ngtemplate-loader?relativeTo=' + path.resolve(__dirname) + '/src',
           'html-loader',
         ]
-      }
+      },
+      {
+        test: /\.(png|svg|jpg|gif|eot|woff|woff2)(\?.*)?$/,
+        use: 'url-loader?limit=1000',
+      },
+      {
+        test: /\.(swf|ttf)$/,
+        use: 'file-loader',
+      },
     ]
   }
 };
