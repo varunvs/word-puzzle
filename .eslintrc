@@ -4,7 +4,8 @@
   "rules": {
     "max-len": ["error", 120],
     "no-debugger": "warn",
-    "import/first": 0
+    "import/first": 0,
+    "func-names": 0
   },
   "env": {
     "browser": true
